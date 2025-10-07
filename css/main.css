@@ -1,0 +1,293 @@
+
+/* Style file created by Noah 
+ ========================================
+ 00: css variable
+ 01: color
+ 02: layout
+ 03: typography
+ 04: transition, animation, selector practice
+ 05: Any exploration
+ ======================================
+ */
+/** 00 css variable */
+:root {
+  --body-color: hsla(329, 77%, 76%, 0.8);
+  --page-color: hsla(28, 100%, 70%, 0.9);
+  --sidebar-color: rgb(226, 105, 35);
+  --page-width: 40%;
+  --page-top: 15vh;
+  --bottom-bar-height: 15vh;
+}
+
+/** 01 color */
+body {
+  background-color: var(--body-color);
+}
+
+#zen-intro {
+  position: relative;
+  background-color: var(--page-color);
+  width: var(--page-width);
+  margin: var(--page-top) 0 0 10vw;
+  padding: 2rem 2.5rem;
+  transform: rotate(-4deg);
+  transform-origin: top left;
+  border-radius: 10px;
+  box-shadow: var(--paper-shadow);
+  z-index: 1;
+}
+
+/** 02 Layout **/
+div.explanation,
+div.requirements,
+div.benefits,
+div.participation {
+  transition: all 2s ease-in-out;
+  position: relative;
+  width: var(--page-width);
+  top: var(--page-bottom);
+}
+
+div.explanation {
+  left: 15vw;
+}
+
+div.requirements {
+  left: 45vw;
+}
+
+div.participation {
+  left: 45vw;
+}
+
+/* do the layout on the rest of the page */
+/* side bar */
+.sidebar {
+  position: absolute;
+  top: 15%;
+  right: 0;
+  bottom: 2vh;
+  width: 15%;
+}
+
+/* extra1-4 decoration block */
+div.extra1 {
+  position: fixed;
+  left: 12vw;
+  width: calc(var(--page-width) + 60px);
+  height: 90vh;
+  top: 10vh;
+  background-image: url("../img/newspaper2.jpg");
+  z-index: -1;
+  transform: rotate(7deg);
+  box-shadow: 0 26px 58px rgba(0, 0, 0, 0.35);
+}
+
+/* should have four file tabs */
+div.explanation h3,
+div.requirements h3 {
+  margin-top: -10%;
+  padding-left: 10px;
+  width: 100px;
+  border: 3px dashed black;
+  background-color: rgb(253, 200, 130);
+}
+
+/**  Try  h1,  **/
+@font-face {
+  font-family: "myFont";
+  src: url("../fonts/chunkfive.woff") format("woff");
+}
+
+header h1 {
+  font-family: "myFont";
+}
+
+header h2 {
+  font-family: "Bitcount Prop Double Ink", system-ui;
+}
+
+#design-selection h3 {
+  visibility: hidden;
+  /*or 'display: none;' */
+}
+
+/* hide the next two */
+#design-archives {
+  display: none;
+}
+
+#design-resources {
+  display: none;
+}
+
+/* 04: transition, animation, selector practice */
+/* selector */
+a:hover {
+  font-size: 1.5em;
+}
+
+h3:hover {
+  color: rgb(21, 155, 189);
+}
+
+/* finish the active action for requirement/benefits/participation */
+div.explanation:active,
+div.requirements:active,
+div.benefits:active,
+div.participation:active {
+  top: 10vh;
+  height: 100vh;
+}
+
+p::first-letter {
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+
+p:nth-child(2n) {
+  background-color: rgb(77, 77, 199);
+}
+
+p:nth-child(2n + 1) {
+  background-color: rgb(6, 179, 141);
+}
+
+/* Try text-shadow, box-shadow */
+p {
+  box-shadow: 2px 2px 100px rgba(128, 128, 128, 0.781);
+}
+
+/* border radius of the tab */
+div.explanation h3,
+div.requirements h3,
+div.benefits h3,
+div.participation h3 {
+  border-radius: 22px;
+  border-top: solid rgb(255, 174, 0);
+  padding-left: 7px;
+}
+
+ul {
+  list-style-image: url(../img/star.png);
+}
+
+/* transition transform */
+section.intro h3~p {
+  text-transform: capitalize;
+  opacity: 1;
+  transition: all 3s ease-in-out;
+}
+
+section.intro h3:hover~p {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 2s ease-in-out;
+}
+
+footer {
+  position: fixed;
+  bottom: 1vh;
+  z-index: 4;
+  animation: 5s infinite running backandforth;
+}
+
+h2 {
+  background-image: linear-gradient(0deg, red, yellow, blue);
+  animation: 2s infinite running changeColor;
+}
+
+@keyframes changeColor {
+  from {
+    background-image: linear-gradient(90deg, red, yellow, blue);
+  }
+
+  50% {
+    background-image: linear-gradient(180deg, red, yellow, blue);
+  }
+
+  to {
+    background-image: linear-gradient(270deg, red, yellow, blue);
+  }
+}
+
+@keyframes backandforth {
+  from {
+    transform: translateX(0%);
+  }
+
+  50% {
+    transform: translateX(calc(0% + 77vw));
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+aside {
+  clip-path: polygon(0 0, 0 60%, 50% 100%, 90% 60%, 90% 0);
+  /* clip-path: circle( 60% at 50vm 50vh); */
+}
+
+.sidebar {
+  position: fixed;
+  top: 12vh;
+  right: 6vw;
+  width: 22vw;
+  padding: 1rem 1.25rem 2rem;
+  background: var(--sidebar-color);
+  color: #100;
+  clip-path: polygon(0 0, 0 60%, 50% 100%, 90% 60%, 90% 0);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+div.explanation,
+div.requirements,
+div.benefits,
+div.participation {
+  position: fixed;
+  bottom: 0;
+  height: var(--bottom-bar-height);
+  width: 25vw;
+  overflow: hidden;
+  background: rgba(255, 248, 240, 0.96);
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25);
+  z-index: 3;
+}
+
+div.explanation {
+  left: 0;
+}
+
+div.requirements {
+  left: 25vw;
+}
+
+div.benefits {
+  left: 50vw;
+}
+
+div.participation {
+  left: 75vw;
+}
+
+div.explanation h3,
+div.requirements h3,
+div.benefits h3,
+div.participation h3 {
+  margin: 0;
+  padding: 0.4rem 0.8rem;
+  background: #f6d2a1;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+div.explanation:hover,
+div.requirements:hover,
+div.benefits:hover,
+div.participation:hover {
+  height: 60vh;
+  overflow: auto;
+}
